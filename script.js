@@ -124,7 +124,73 @@ function validateForm(form) {
     return isValid;
 }
 
-// Enhanced Publication filter functionality
+// Tag-based filtering
+window.filterByTag = function(element, filterValue) {
+    console.log('=== filterByTag called ===');
+    console.log('Filter value:', filterValue);
+    
+    // Remove active class from all tags
+    document.querySelectorAll('.tag').forEach(tag => tag.classList.remove('active'));
+    
+    // Add active class to clicked tag
+    element.classList.add('active');
+    
+    const publications = document.querySelectorAll('.publication-item');
+    const yearSections = document.querySelectorAll('.year-section');
+    
+    let visibleCount = 0;
+    
+    // Filter publications
+    publications.forEach(publication => {
+        const year = publication.dataset.year;
+        const category = publication.dataset.category || '';
+        
+        let show = false;
+        
+        if (filterValue === 'all') {
+            show = true;
+        } else if (filterValue === year) {
+            // Year filter
+            show = true;
+        } else if (category.includes(filterValue)) {
+            // Topic or type filter
+            show = true;
+        }
+        
+        if (show) {
+            publication.style.display = 'block';
+            publication.style.animation = 'fadeIn 0.5s ease-in';
+            visibleCount++;
+        } else {
+            publication.style.display = 'none';
+        }
+    });
+    
+    // Hide year sections with no visible publications
+    yearSections.forEach(section => {
+        const visiblePubs = Array.from(section.querySelectorAll('.publication-item')).filter(pub => {
+            return pub.style.display !== 'none';
+        });
+        
+        if (visiblePubs.length === 0) {
+            section.style.display = 'none';
+        } else {
+            section.style.display = 'block';
+        }
+    });
+    
+    console.log(`✅ Filtered: ${visibleCount} visible publications`);
+}
+
+// Reset filters
+window.resetFilters = function() {
+    const allTag = document.querySelector('.tag[data-filter="all"]');
+    if (allTag) {
+        filterByTag(allTag, 'all');
+    }
+}
+
+// Enhanced Publication filter functionality (kept for backward compatibility)
 window.filterPublications = function() {
     console.log('=== filterPublications called ===');
     

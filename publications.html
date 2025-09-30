@@ -337,48 +337,30 @@
     <!-- Publications List -->
     <section class="publications-list">
         <div class="container">
-            <!-- Publication Filters -->
-            <div class="publication-filters">
-                <div class="filter-group">
-                    <label for="yearFilter">Filter by Year:</label>
-                    <select id="yearFilter" onchange="filterPublications()">
-                        <option value="all">All Years</option>
-                        <option value="2025">2025</option>
-                        <option value="2024">2024</option>
-                        <option value="2023">2023</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                    </select>
+            <!-- Tag Cloud Filter -->
+            <div class="tag-cloud-filter">
+                <div class="filter-header">
+                    <h3>Filter Publications</h3>
+                    <button class="reset-filters" onclick="resetFilters()">
+                        <i class="fas fa-redo"></i> Show All
+                    </button>
                 </div>
-                <div class="filter-group">
-                    <label for="typeFilter">Filter by Type:</label>
-                    <select id="typeFilter" onchange="filterPublications()">
-                        <option value="all">All Types</option>
-                        <option value="journal">Journal Articles</option>
-                        <option value="conference">Conference Papers</option>
-                        <option value="book">Book Chapters</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="topicFilter">Filter by Topic:</label>
-                    <select id="topicFilter" onchange="filterPublications()">
-                        <option value="all">All Topics</option>
-                        <option value="energy">Energy Systems</option>
-                        <option value="renewable">Renewable Energy</option>
-                        <option value="policy">Energy Policy</option>
-                        <option value="modeling">Energy Modeling</option>
-                        <option value="environment">Environmental</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="sortBy">Sort by:</label>
-                    <select id="sortBy" onchange="sortPublications()">
-                        <option value="year-desc">Year (Newest First)</option>
-                        <option value="year-asc">Year (Oldest First)</option>
-                        <option value="citations-desc">Citations (Highest First)</option>
-                        <option value="title-asc">Title (A-Z)</option>
-                    </select>
+                <div class="tag-cloud">
+                    <span class="tag active" data-filter="all" onclick="filterByTag(this, 'all')">All</span>
+                    <span class="tag tag-type" data-filter="journal" onclick="filterByTag(this, 'journal')">Journal Articles</span>
+                    <span class="tag tag-type" data-filter="conference" onclick="filterByTag(this, 'conference')">Conference Papers</span>
+                    <span class="tag tag-topic" data-filter="modeling" onclick="filterByTag(this, 'modeling')">Energy Modeling</span>
+                    <span class="tag tag-topic" data-filter="renewable" onclick="filterByTag(this, 'renewable')">Renewable Energy</span>
+                    <span class="tag tag-topic" data-filter="hydrogen" onclick="filterByTag(this, 'hydrogen')">Green Hydrogen</span>
+                    <span class="tag tag-topic" data-filter="policy" onclick="filterByTag(this, 'policy')">Energy Policy</span>
+                    <span class="tag tag-topic" data-filter="energy" onclick="filterByTag(this, 'energy')">Energy Systems</span>
+                    <span class="tag tag-topic" data-filter="bioenergy" onclick="filterByTag(this, 'bioenergy')">Bioenergy</span>
+                    <span class="tag tag-year" data-filter="2025" onclick="filterByTag(this, '2025')">2025</span>
+                    <span class="tag tag-year" data-filter="2024" onclick="filterByTag(this, '2024')">2024</span>
+                    <span class="tag tag-year" data-filter="2023" onclick="filterByTag(this, '2023')">2023</span>
+                    <span class="tag tag-year" data-filter="2019" onclick="filterByTag(this, '2019')">2019</span>
+                    <span class="tag tag-year" data-filter="2018" onclick="filterByTag(this, '2018')">2018</span>
+                    <span class="tag tag-year" data-filter="2017" onclick="filterByTag(this, '2017')">2017</span>
                 </div>
             </div>
             <div class="publications-container">
