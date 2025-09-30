@@ -913,6 +913,14 @@ button:focus {
     color: var(--primary-color);
 }
 
+/* Projects List Styling */
+.projects-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
 /* Simple Project Styling */
 .simple-project {
     text-align: center;
@@ -921,8 +929,12 @@ button:focus {
     border-radius: 12px;
     box-shadow: var(--shadow);
     border-left: 4px solid var(--accent-color);
-    max-width: 600px;
-    margin: 2rem auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.simple-project:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
 .simple-project h3 {
