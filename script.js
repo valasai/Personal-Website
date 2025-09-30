@@ -131,16 +131,20 @@ function filterPublications() {
     const topicFilter = document.getElementById('topicFilter');
     const publications = document.querySelectorAll('.publication-item');
     
-    if (!yearFilter || !typeFilter || !topicFilter) return;
+    if (!yearFilter || !typeFilter || !topicFilter) {
+        console.log('Filter elements not found, retrying...');
+        return;
+    }
     
     const selectedYear = yearFilter.value;
     const selectedType = typeFilter.value;
     const selectedTopic = topicFilter.value;
     
+    console.log('Filtering publications:', { selectedYear, selectedType, selectedTopic });
+    
     publications.forEach(publication => {
         const year = publication.dataset.year;
         const category = publication.dataset.category || '';
-        const type = publication.dataset.type || '';
         
         let show = true;
         
@@ -149,8 +153,8 @@ function filterPublications() {
             show = false;
         }
         
-        // Type filter
-        if (selectedType !== 'all' && !type.includes(selectedType)) {
+        // Type filter - check if category contains the selected type
+        if (selectedType !== 'all' && !category.includes(selectedType)) {
             show = false;
         }
         
@@ -166,6 +170,8 @@ function filterPublications() {
             publication.style.display = 'none';
         }
     });
+    
+    console.log(`Filtered ${publications.length} publications`);
 }
 
 // Sort publications functionality
@@ -408,11 +414,13 @@ function autoAdvanceCarousel() {
 // Initialize all functionality safely
 document.addEventListener('DOMContentLoaded', function() {
     try {
-        // Initialize all features
-        filterPublications();
-        searchPublications();
-        sortPublications();
-        autoAdvanceCarousel();
+        // Initialize all features with a small delay to ensure DOM is fully loaded
+        setTimeout(() => {
+            filterPublications();
+            searchPublications();
+            sortPublications();
+            autoAdvanceCarousel();
+        }, 100);
         
         // Add loading states
         document.body.classList.add('loaded');
