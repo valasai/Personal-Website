@@ -434,14 +434,17 @@ p {
 }
 
 .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
     text-align: center;
+    flex-wrap: wrap;
 }
 
 .stat-item {
     padding: 1rem;
+    min-width: 120px;
 }
 
 .stat-number {
@@ -716,7 +719,7 @@ p {
     }
 
     .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
 
     .updates-grid {
@@ -758,7 +761,8 @@ p {
     }
 
     .stats-grid {
-        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        flex-direction: column;
     }
 
     .stat-number {
@@ -2227,10 +2231,12 @@ button:focus {
 }
 
 .book-stats .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
     text-align: center;
+    flex-wrap: wrap;
 }
 
 .book-stats .stat-item {
