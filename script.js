@@ -428,7 +428,7 @@ function moveCarousel(direction) {
     showSlide(currentSlide + direction);
 }
 
-function currentSlide(n) {
+function goToSlide(n) {
     showSlide(n - 1);
 }
 
