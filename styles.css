@@ -2796,6 +2796,20 @@ button:focus {
     align-items: start;
 }
 
+.contact-photo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contact-photo .profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid var(--primary-color);
+    box-shadow: var(--shadow-lg);
+}
+
 .contact-details h2,
 .contact-form-container h2 {
     color: var(--primary-color);
@@ -3145,6 +3159,11 @@ button:focus {
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    .contact-photo .profile-photo {
+        width: 150px;
+        height: 150px;
     }
     
     .contact-item {
