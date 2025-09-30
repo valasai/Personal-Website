@@ -27,6 +27,7 @@
                 <a href="teaching.html" class="nav-link">Teaching</a>
                 <a href="books.html" class="nav-link">Books</a>
                 <a href="activities.html" class="nav-link">Activities</a>
+                <a href="consulting.html" class="nav-link">Consulting</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </div>
             <div class="nav-toggle" id="nav-toggle">
@@ -88,6 +89,94 @@
                     <i class="fab fa-researchgate"></i>
                     <span>ResearchGate</span>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Papers Carousel -->
+    <section class="featured-papers">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Publications</h2>
+                <p>Highlighted research with significant impact and citations</p>
+            </div>
+            <div class="papers-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="paper-slide active">
+                            <div class="paper-card featured">
+                                <div class="paper-header">
+                                    <h3>Energy security and environmental sustainability index of South Asian countries: A composite index approach</h3>
+                                    <div class="paper-meta">
+                                        <span class="journal">Ecological Indicators</span>
+                                        <span class="year">2019</span>
+                                        <span class="citations">287 citations</span>
+                                    </div>
+                                </div>
+                                <div class="paper-abstract">
+                                    <p>This study develops a comprehensive composite index to assess energy security and environmental sustainability across South Asian countries, providing policy insights for sustainable energy transitions.</p>
+                                </div>
+                                <div class="paper-actions">
+                                    <a href="https://doi.org/10.1016/j.ecolind.2019.105507" target="_blank" class="btn btn-primary">View Paper</a>
+                                    <a href="#" class="btn btn-outline">Download PDF</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="paper-slide">
+                            <div class="paper-card featured">
+                                <div class="paper-header">
+                                    <h3>A review of energy and power planning and policies of Pakistan</h3>
+                                    <div class="paper-meta">
+                                        <span class="journal">Renewable and Sustainable Energy Reviews</span>
+                                        <span class="year">2017</span>
+                                        <span class="citations">276 citations</span>
+                                    </div>
+                                </div>
+                                <div class="paper-abstract">
+                                    <p>Comprehensive analysis of Pakistan's energy planning framework and policy landscape, identifying key challenges and opportunities for renewable energy integration.</p>
+                                </div>
+                                <div class="paper-actions">
+                                    <a href="https://doi.org/10.1016/j.rser.2017.05.002" target="_blank" class="btn btn-primary">View Paper</a>
+                                    <a href="#" class="btn btn-outline">Download PDF</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="paper-slide">
+                            <div class="paper-card featured">
+                                <div class="paper-header">
+                                    <h3>Overcoming electricity crisis in Pakistan: A review of sustainable electricity options</h3>
+                                    <div class="paper-meta">
+                                        <span class="journal">Renewable and Sustainable Energy Reviews</span>
+                                        <span class="year">2017</span>
+                                        <span class="citations">250 citations</span>
+                                    </div>
+                                </div>
+                                <div class="paper-abstract">
+                                    <p>Strategic analysis of sustainable electricity generation options for Pakistan, focusing on renewable energy potential and policy recommendations.</p>
+                                </div>
+                                <div class="paper-actions">
+                                    <a href="https://doi.org/10.1016/j.rser.2017.03.079" target="_blank" class="btn btn-primary">View Paper</a>
+                                    <a href="#" class="btn btn-outline">Download PDF</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev" onclick="moveCarousel(-1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn next" onclick="moveCarousel(1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -248,6 +337,50 @@
     <!-- Publications List -->
     <section class="publications-list">
         <div class="container">
+            <!-- Publication Filters -->
+            <div class="publication-filters">
+                <div class="filter-group">
+                    <label for="yearFilter">Filter by Year:</label>
+                    <select id="yearFilter" onchange="filterPublications()">
+                        <option value="all">All Years</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="typeFilter">Filter by Type:</label>
+                    <select id="typeFilter" onchange="filterPublications()">
+                        <option value="all">All Types</option>
+                        <option value="journal">Journal Articles</option>
+                        <option value="conference">Conference Papers</option>
+                        <option value="book">Book Chapters</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="topicFilter">Filter by Topic:</label>
+                    <select id="topicFilter" onchange="filterPublications()">
+                        <option value="all">All Topics</option>
+                        <option value="energy">Energy Systems</option>
+                        <option value="renewable">Renewable Energy</option>
+                        <option value="policy">Energy Policy</option>
+                        <option value="modeling">Energy Modeling</option>
+                        <option value="environment">Environmental</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sortBy">Sort by:</label>
+                    <select id="sortBy" onchange="sortPublications()">
+                        <option value="year-desc">Year (Newest First)</option>
+                        <option value="year-asc">Year (Oldest First)</option>
+                        <option value="citations-desc">Citations (Highest First)</option>
+                        <option value="title-asc">Title (A-Z)</option>
+                    </select>
+                </div>
+            </div>
             <div class="publications-container">
                 <!-- 2025 Publications -->
                 <div class="year-section">

@@ -124,28 +124,94 @@ function validateForm(form) {
     return isValid;
 }
 
-// Publication filter functionality (for publications page)
+// Enhanced Publication filter functionality
 function filterPublications() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    const yearFilter = document.getElementById('yearFilter');
+    const typeFilter = document.getElementById('typeFilter');
+    const topicFilter = document.getElementById('topicFilter');
     const publications = document.querySelectorAll('.publication-item');
     
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const filter = this.dataset.filter;
+    if (!yearFilter || !typeFilter || !topicFilter) return;
+    
+    function applyFilters() {
+        const selectedYear = yearFilter.value;
+        const selectedType = typeFilter.value;
+        const selectedTopic = topicFilter.value;
+        
+        publications.forEach(publication => {
+            const year = publication.dataset.year;
+            const category = publication.dataset.category || '';
+            const type = publication.dataset.type || '';
             
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
+            let show = true;
             
-            // Filter publications
-            publications.forEach(publication => {
-                if (filter === 'all' || publication.dataset.category === filter) {
-                    publication.style.display = 'block';
-                    publication.style.animation = 'fadeIn 0.5s ease-in';
-                } else {
-                    publication.style.display = 'none';
-                }
-            });
+            // Year filter
+            if (selectedYear !== 'all' && year !== selectedYear) {
+                show = false;
+            }
+            
+            // Type filter
+            if (selectedType !== 'all' && !type.includes(selectedType)) {
+                show = false;
+            }
+            
+            // Topic filter
+            if (selectedTopic !== 'all' && !category.includes(selectedTopic)) {
+                show = false;
+            }
+            
+            if (show) {
+                publication.style.display = 'block';
+                publication.style.animation = 'fadeIn 0.5s ease-in';
+            } else {
+                publication.style.display = 'none';
+            }
+        });
+    }
+    
+    // Apply filters when any filter changes
+    [yearFilter, typeFilter, topicFilter].forEach(filter => {
+        if (filter) {
+            filter.addEventListener('change', applyFilters);
+        }
+    });
+}
+
+// Sort publications functionality
+function sortPublications() {
+    const sortSelect = document.getElementById('sortBy');
+    const publicationsContainer = document.querySelector('.publications-container');
+    
+    if (!sortSelect || !publicationsContainer) return;
+    
+    sortSelect.addEventListener('change', function() {
+        const sortValue = this.value;
+        const yearSections = Array.from(document.querySelectorAll('.year-section'));
+        
+        // Sort year sections based on selected criteria
+        yearSections.sort((a, b) => {
+            const yearA = parseInt(a.querySelector('.year-header').textContent);
+            const yearB = parseInt(b.querySelector('.year-header').textContent);
+            
+            switch (sortValue) {
+                case 'year-desc':
+                    return yearB - yearA;
+                case 'year-asc':
+                    return yearA - yearB;
+                case 'citations-desc':
+                    // Sort by citations (would need citation data in HTML)
+                    return 0;
+                case 'title-asc':
+                    // Sort by title alphabetically
+                    return 0;
+                default:
+                    return yearB - yearA;
+            }
+        });
+        
+        // Re-append sorted sections
+        yearSections.forEach(section => {
+            publicationsContainer.appendChild(section);
         });
     });
 }
@@ -309,12 +375,55 @@ function safeQuerySelector(selector) {
     }
 }
 
+// Carousel functionality for featured papers
+let currentSlide = 0;
+const slides = document.querySelectorAll('.paper-slide');
+const dots = document.querySelectorAll('.dot');
+
+function showSlide(n) {
+    if (slides.length === 0) return;
+    
+    // Hide all slides
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Calculate current slide index
+    currentSlide = (n + slides.length) % slides.length;
+    
+    // Show current slide
+    if (slides[currentSlide]) {
+        slides[currentSlide].classList.add('active');
+    }
+    if (dots[currentSlide]) {
+        dots[currentSlide].classList.add('active');
+    }
+}
+
+function moveCarousel(direction) {
+    showSlide(currentSlide + direction);
+}
+
+function currentSlide(n) {
+    showSlide(n - 1);
+}
+
+// Auto-advance carousel
+function autoAdvanceCarousel() {
+    if (slides.length > 1) {
+        setInterval(() => {
+            moveCarousel(1);
+        }, 5000); // Change slide every 5 seconds
+    }
+}
+
 // Initialize all functionality safely
 document.addEventListener('DOMContentLoaded', function() {
     try {
         // Initialize all features
         filterPublications();
         searchPublications();
+        sortPublications();
+        autoAdvanceCarousel();
         
         // Add loading states
         document.body.classList.add('loaded');
