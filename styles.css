@@ -454,6 +454,7 @@ p {
 .stat-label {
     font-size: 1.1rem;
     font-weight: 500;
+    color: var(--text-dark);
 }
 
 /* Introduction Section */
@@ -803,6 +804,7 @@ button:focus {
 
 .page-subtitle {
     font-size: 1.2rem;
+    color: var(--text-dark);
     opacity: 0.9;
     margin: 0;
 }
@@ -2245,6 +2247,7 @@ button:focus {
 .book-stats .stat-label {
     font-size: 1.1rem;
     font-weight: 500;
+    color: var(--text-dark);
 }
 
 /* Future Projects Styles */
