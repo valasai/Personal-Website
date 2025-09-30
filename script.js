@@ -200,7 +200,25 @@ window.filterPublications = function() {
         }
     });
     
-    console.log(`✅ Results: ${visibleCount} visible, ${hiddenCount} hidden (total: ${publications.length})`);
+    // Hide year sections that have no visible publications
+    const yearSections = document.querySelectorAll('.year-section');
+    let visibleSections = 0;
+    
+    yearSections.forEach(section => {
+        const visiblePubs = Array.from(section.querySelectorAll('.publication-item')).filter(pub => {
+            return pub.style.display !== 'none';
+        });
+        
+        if (visiblePubs.length === 0) {
+            section.style.display = 'none';
+        } else {
+            section.style.display = 'block';
+            visibleSections++;
+        }
+    });
+    
+    console.log(`✅ Results: ${visibleCount} visible publications, ${hiddenCount} hidden (total: ${publications.length})`);
+    console.log(`📅 Year Sections: ${visibleSections} visible, ${yearSections.length - visibleSections} hidden (total: ${yearSections.length})`);
     console.log('=== filterPublications completed ===');
 }
 
