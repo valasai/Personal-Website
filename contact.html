@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Dr. Gordhan Das Valasai</title>
+    <meta name="description" content="Contact Dr. Gordhan Das Valasai, Associate Professor of Mechanical Engineering at QUEST. Get in touch for research collaboration, academic inquiries, or book-related questions.">
+    <meta name="keywords" content="contact, Dr. Gordhan Valasai, mechanical engineering, QUEST, research collaboration, academic inquiry">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Dr. Gordhan Das Valasai</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="research.html" class="nav-link">Research</a>
+                <a href="publications.html" class="nav-link">Publications</a>
+                <a href="teaching.html" class="nav-link">Teaching</a>
+                <a href="books.html" class="nav-link">Books</a>
+                <a href="activities.html" class="nav-link">Activities</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact</h1>
+            <p class="page-subtitle">Get in Touch for Research Collaboration and Academic Inquiries</p>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="contact-info">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-details">
+                    <h2>Contact Information</h2>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h3>Email</h3>
+                            <p><a href="mailto:valasai@quest.edu.pk">valasai@quest.edu.pk</a></p>
+                            <span class="contact-note">Primary contact for all inquiries</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h3>Phone</h3>
+                            <p><a href="tel:+92244937038185">+92 244-9370381-85 Ext. 2622</a></p>
+                            <span class="contact-note">Available during office hours</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h3>Office Address</h3>
+                            <p>
+                                Department of Mechanical Engineering<br>
+                                Quaid-e-Awam University of Engineering, Science & Technology (QUEST)<br>
+                                Nawabshah, Sindh, Pakistan
+                            </p>
+                            <span class="contact-note">Office hours: 9:00 AM - 5:00 PM (Monday to Friday)</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h3>Office Hours</h3>
+                            <p>
+                                Monday - Friday: 9:00 AM - 5:00 PM<br>
+                                Saturday: 9:00 AM - 1:00 PM<br>
+                                Sunday: Closed
+                            </p>
+                            <span class="contact-note">Appointments recommended for detailed discussions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <h2>Send a Message</h2>
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="research">Research Collaboration</option>
+                                <option value="academic">Academic Inquiry</option>
+                                <option value="books">Book-related Question</option>
+                                <option value="student">Student Mentorship</option>
+                                <option value="speaking">Speaking Engagement</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="institution">Institution/Organization</label>
+                            <input type="text" id="institution" name="institution">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Please provide details about your inquiry..."></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span class="checkmark"></span>
+                                Subscribe to updates about my research and publications
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2>Location</h2>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>QUEST Campus Location</h3>
+                    <p>Quaid-e-Awam University of Engineering, Science & Technology</p>
+                    <p>Nawabshah, Sindh, Pakistan</p>
+                    <a href="https://maps.google.com/?q=QUEST+Nawabshah" target="_blank" rel="noopener" class="btn btn-outline">
+                        <i class="fas fa-external-link-alt"></i> Open in Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact Options -->
+    <section class="quick-contact">
+        <div class="container">
+            <h2>Quick Contact Options</h2>
+            <div class="quick-contact-grid">
+                <div class="quick-contact-item">
+                    <div class="quick-contact-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Student Inquiries</h3>
+                    <p>For thesis supervision, course-related questions, or academic guidance</p>
+                    <a href="mailto:valasai@quest.edu.pk?subject=Student Inquiry" class="btn btn-outline">Email for Students</a>
+                </div>
+
+                <div class="quick-contact-item">
+                    <div class="quick-contact-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Research Collaboration</h3>
+                    <p>For research partnerships, joint projects, or academic collaboration</p>
+                    <a href="mailto:valasai@quest.edu.pk?subject=Research Collaboration" class="btn btn-outline">Email for Research</a>
+                </div>
+
+                <div class="quick-contact-item">
+                    <div class="quick-contact-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Book Inquiries</h3>
+                    <p>For book purchases, speaking engagements, or book-related questions</p>
+                    <a href="mailto:valasai@quest.edu.pk?subject=Book Inquiry" class="btn btn-outline">Email for Books</a>
+                </div>
+
+                <div class="quick-contact-item">
+                    <div class="quick-contact-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3>Speaking Engagements</h3>
+                    <p>For conference invitations, workshops, or speaking opportunities</p>
+                    <a href="mailto:valasai@quest.edu.pk?subject=Speaking Engagement" class="btn btn-outline">Email for Speaking</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Links -->
+    <section class="social-media">
+        <div class="container">
+            <h2>Connect on Social Media</h2>
+            <div class="social-links-extended">
+                <a href="https://www.researchgate.net/profile/Gordhan-Valasai" target="_blank" rel="noopener" class="social-link">
+                    <i class="fab fa-researchgate"></i>
+                    <span>ResearchGate</span>
+                    <p>47 publications, 1,576 citations, 109,000+ reads</p>
+                </a>
+                <a href="https://orcid.org/0000-0002-0476-4927" target="_blank" rel="noopener" class="social-link">
+                    <i class="fab fa-orcid"></i>
+                    <span>ORCID</span>
+                    <p>Research profile and publications</p>
+                </a>
+                <a href="https://ideas.repec.org/f/pva647.html" target="_blank" rel="noopener" class="social-link">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>IDEAS/RePEc</span>
+                    <p>Economics research database profile</p>
+                </a>
+                <a href="https://livedna.net/?dna=92.42391" target="_blank" rel="noopener" class="social-link">
+                    <i class="fas fa-dna"></i>
+                    <span>LiveDNA</span>
+                    <p>Research interests and expertise profile</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Response Time Information -->
+    <section class="response-info">
+        <div class="container">
+            <div class="response-content">
+                <h2>Response Time</h2>
+                <div class="response-grid">
+                    <div class="response-item">
+                        <h3>Email Inquiries</h3>
+                        <p>I typically respond to emails within 24-48 hours during weekdays. For urgent matters, please call directly.</p>
+                    </div>
+                    <div class="response-item">
+                        <h3>Research Collaboration</h3>
+                        <p>Research collaboration inquiries may take 3-5 business days for detailed response and proposal review.</p>
+                    </div>
+                    <div class="response-item">
+                        <h3>Student Appointments</h3>
+                        <p>Student meetings are scheduled by appointment. Please email to arrange a convenient time.</p>
+                    </div>
+                    <div class="response-item">
+                        <h3>Speaking Engagements</h3>
+                        <p>Speaking engagement requests are reviewed monthly. Please provide event details and timeline.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dr. Gordhan Das Valasai</h3>
+                    <p>Associate Professor of Mechanical Engineering<br>
+                    Quaid-e-Awam University of Engineering, Science & Technology (QUEST)<br>
+                    Nawabshah, Pakistan</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="teaching.html">Teaching</a></li>
+                        <li><a href="books.html">Books</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> valasai@quest.edu.pk</p>
+                    <p><i class="fas fa-phone"></i> +92 244-9370381-85 Ext. 2622</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Me</h4>
+                    <div class="social-links">
+                        <a href="https://www.researchgate.net/profile/Gordhan-Valasai" target="_blank" rel="noopener"><i class="fab fa-researchgate"></i></a>
+                        <a href="https://orcid.org/0000-0002-0476-4927" target="_blank" rel="noopener"><i class="fab fa-orcid"></i></a>
+                        <a href="https://ideas.repec.org/f/pva647.html" target="_blank" rel="noopener"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://livedna.net/?dna=92.42391" target="_blank" rel="noopener"><i class="fas fa-dna"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dr. Gordhan Das Valasai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

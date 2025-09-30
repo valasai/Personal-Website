@@ -1,0 +1,27 @@
+{
+    "name": "Dr. Gordhan Das Valasai - Academic Profile",
+    "short_name": "Dr. Valasai",
+    "description": "Academic website of Dr. Gordhan Das Valasai, Associate Professor of Mechanical Engineering at QUEST, Pakistan",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#1e3a8a",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "images/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["education", "academic", "research"],
+    "lang": "en",
+    "dir": "ltr"
+}
