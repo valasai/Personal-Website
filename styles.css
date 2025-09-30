@@ -812,7 +812,7 @@ button:focus {
 
 .page-subtitle {
     font-size: 1.2rem;
-    color: var(--text-dark);
+    color: white;
     opacity: 0.9;
     margin: 0;
 }
