@@ -460,6 +460,10 @@ p {
     color: var(--text-dark);
 }
 
+.stats .stat-label {
+    color: white;
+}
+
 /* Introduction Section */
 .introduction {
     padding: 80px 0;
