@@ -126,7 +126,7 @@ function validateForm(form) {
 
 // Enhanced Publication filter functionality
 window.filterPublications = function() {
-    console.log('filterPublications called');
+    console.log('=== filterPublications called ===');
     
     const yearFilter = document.getElementById('yearFilter');
     const typeFilter = document.getElementById('typeFilter');
@@ -141,7 +141,7 @@ window.filterPublications = function() {
     });
     
     if (!yearFilter || !typeFilter || !topicFilter) {
-        console.log('Filter elements not found, retrying...');
+        console.warn('⚠️ Filter elements not found!');
         return;
     }
     
@@ -149,45 +149,59 @@ window.filterPublications = function() {
     const selectedType = typeFilter.value;
     const selectedTopic = topicFilter.value;
     
-    console.log('Filtering publications:', { selectedYear, selectedType, selectedTopic });
+    console.log('📊 Filter Values:', { selectedYear, selectedType, selectedTopic });
     
     let visibleCount = 0;
+    let hiddenCount = 0;
     
     publications.forEach((publication, index) => {
         const year = publication.dataset.year;
         const category = publication.dataset.category || '';
         
         let show = true;
+        let reasons = [];
         
         // Year filter
         if (selectedYear !== 'all' && year !== selectedYear) {
             show = false;
+            reasons.push(`year mismatch: ${year} !== ${selectedYear}`);
         }
         
         // Type filter - check if category contains the selected type
         if (selectedType !== 'all' && !category.includes(selectedType)) {
             show = false;
+            reasons.push(`type not in category: '${selectedType}' not in '${category}'`);
         }
         
         // Topic filter
         if (selectedTopic !== 'all' && !category.includes(selectedTopic)) {
             show = false;
+            reasons.push(`topic not in category: '${selectedTopic}' not in '${category}'`);
         }
         
+        // Apply visibility
         if (show) {
             publication.style.display = 'block';
             publication.style.animation = 'fadeIn 0.5s ease-in';
             visibleCount++;
         } else {
             publication.style.display = 'none';
+            hiddenCount++;
         }
         
-        if (index < 3) { // Log first 3 for debugging
-            console.log(`Publication ${index}: year=${year}, category=${category}, show=${show}`);
+        // Debug logging for first few publications
+        if (index < 5) {
+            console.log(`📄 Publication ${index}:`, {
+                year,
+                category,
+                show,
+                reasons: reasons.length > 0 ? reasons : 'passed all filters'
+            });
         }
     });
     
-    console.log(`Filtered ${publications.length} publications, ${visibleCount} visible`);
+    console.log(`✅ Results: ${visibleCount} visible, ${hiddenCount} hidden (total: ${publications.length})`);
+    console.log('=== filterPublications completed ===');
 }
 
 // Sort publications functionality
