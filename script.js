@@ -133,46 +133,37 @@ function filterPublications() {
     
     if (!yearFilter || !typeFilter || !topicFilter) return;
     
-    function applyFilters() {
-        const selectedYear = yearFilter.value;
-        const selectedType = typeFilter.value;
-        const selectedTopic = topicFilter.value;
-        
-        publications.forEach(publication => {
-            const year = publication.dataset.year;
-            const category = publication.dataset.category || '';
-            const type = publication.dataset.type || '';
-            
-            let show = true;
-            
-            // Year filter
-            if (selectedYear !== 'all' && year !== selectedYear) {
-                show = false;
-            }
-            
-            // Type filter
-            if (selectedType !== 'all' && !type.includes(selectedType)) {
-                show = false;
-            }
-            
-            // Topic filter
-            if (selectedTopic !== 'all' && !category.includes(selectedTopic)) {
-                show = false;
-            }
-            
-            if (show) {
-                publication.style.display = 'block';
-                publication.style.animation = 'fadeIn 0.5s ease-in';
-            } else {
-                publication.style.display = 'none';
-            }
-        });
-    }
+    const selectedYear = yearFilter.value;
+    const selectedType = typeFilter.value;
+    const selectedTopic = topicFilter.value;
     
-    // Apply filters when any filter changes
-    [yearFilter, typeFilter, topicFilter].forEach(filter => {
-        if (filter) {
-            filter.addEventListener('change', applyFilters);
+    publications.forEach(publication => {
+        const year = publication.dataset.year;
+        const category = publication.dataset.category || '';
+        const type = publication.dataset.type || '';
+        
+        let show = true;
+        
+        // Year filter
+        if (selectedYear !== 'all' && year !== selectedYear) {
+            show = false;
+        }
+        
+        // Type filter
+        if (selectedType !== 'all' && !type.includes(selectedType)) {
+            show = false;
+        }
+        
+        // Topic filter
+        if (selectedTopic !== 'all' && !category.includes(selectedTopic)) {
+            show = false;
+        }
+        
+        if (show) {
+            publication.style.display = 'block';
+            publication.style.animation = 'fadeIn 0.5s ease-in';
+        } else {
+            publication.style.display = 'none';
         }
     });
 }
@@ -184,35 +175,33 @@ function sortPublications() {
     
     if (!sortSelect || !publicationsContainer) return;
     
-    sortSelect.addEventListener('change', function() {
-        const sortValue = this.value;
-        const yearSections = Array.from(document.querySelectorAll('.year-section'));
+    const sortValue = sortSelect.value;
+    const yearSections = Array.from(document.querySelectorAll('.year-section'));
+    
+    // Sort year sections based on selected criteria
+    yearSections.sort((a, b) => {
+        const yearA = parseInt(a.querySelector('.year-header').textContent);
+        const yearB = parseInt(b.querySelector('.year-header').textContent);
         
-        // Sort year sections based on selected criteria
-        yearSections.sort((a, b) => {
-            const yearA = parseInt(a.querySelector('.year-header').textContent);
-            const yearB = parseInt(b.querySelector('.year-header').textContent);
-            
-            switch (sortValue) {
-                case 'year-desc':
-                    return yearB - yearA;
-                case 'year-asc':
-                    return yearA - yearB;
-                case 'citations-desc':
-                    // Sort by citations (would need citation data in HTML)
-                    return 0;
-                case 'title-asc':
-                    // Sort by title alphabetically
-                    return 0;
-                default:
-                    return yearB - yearA;
-            }
-        });
-        
-        // Re-append sorted sections
-        yearSections.forEach(section => {
-            publicationsContainer.appendChild(section);
-        });
+        switch (sortValue) {
+            case 'year-desc':
+                return yearB - yearA;
+            case 'year-asc':
+                return yearA - yearB;
+            case 'citations-desc':
+                // Sort by citations (would need citation data in HTML)
+                return 0;
+            case 'title-asc':
+                // Sort by title alphabetically
+                return 0;
+            default:
+                return yearB - yearA;
+        }
+    });
+    
+    // Re-append sorted sections
+    yearSections.forEach(section => {
+        publicationsContainer.appendChild(section);
     });
 }
 
