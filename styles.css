@@ -824,16 +824,20 @@ button:focus {
 }
 
 .overview-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 4rem;
-    align-items: start;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.overview-text {
+    max-width: 100%;
+    margin: 0;
 }
 
 .overview-text p {
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 1.5rem;
+    text-align: left;
 }
 
 /* Research Focus Areas Section */
