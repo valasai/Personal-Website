@@ -913,6 +913,32 @@ button:focus {
     color: var(--primary-color);
 }
 
+/* Simple Project Styling */
+.simple-project {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--accent-color);
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.simple-project h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.simple-project p {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin: 0;
+    font-weight: 500;
+}
+
 .research-focus {
     background-color: var(--bg-light);
     padding: 2rem;
