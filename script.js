@@ -125,11 +125,20 @@ function validateForm(form) {
 }
 
 // Enhanced Publication filter functionality
-function filterPublications() {
+window.filterPublications = function() {
+    console.log('filterPublications called');
+    
     const yearFilter = document.getElementById('yearFilter');
     const typeFilter = document.getElementById('typeFilter');
     const topicFilter = document.getElementById('topicFilter');
     const publications = document.querySelectorAll('.publication-item');
+    
+    console.log('Found elements:', {
+        yearFilter: !!yearFilter,
+        typeFilter: !!typeFilter,
+        topicFilter: !!topicFilter,
+        publications: publications.length
+    });
     
     if (!yearFilter || !typeFilter || !topicFilter) {
         console.log('Filter elements not found, retrying...');
@@ -142,7 +151,9 @@ function filterPublications() {
     
     console.log('Filtering publications:', { selectedYear, selectedType, selectedTopic });
     
-    publications.forEach(publication => {
+    let visibleCount = 0;
+    
+    publications.forEach((publication, index) => {
         const year = publication.dataset.year;
         const category = publication.dataset.category || '';
         
@@ -166,16 +177,21 @@ function filterPublications() {
         if (show) {
             publication.style.display = 'block';
             publication.style.animation = 'fadeIn 0.5s ease-in';
+            visibleCount++;
         } else {
             publication.style.display = 'none';
         }
+        
+        if (index < 3) { // Log first 3 for debugging
+            console.log(`Publication ${index}: year=${year}, category=${category}, show=${show}`);
+        }
     });
     
-    console.log(`Filtered ${publications.length} publications`);
+    console.log(`Filtered ${publications.length} publications, ${visibleCount} visible`);
 }
 
 // Sort publications functionality
-function sortPublications() {
+window.sortPublications = function() {
     const sortSelect = document.getElementById('sortBy');
     const publicationsContainer = document.querySelector('.publications-container');
     
@@ -416,6 +432,32 @@ document.addEventListener('DOMContentLoaded', function() {
     try {
         // Initialize all features with a small delay to ensure DOM is fully loaded
         setTimeout(() => {
+            console.log('Initializing publication filters...');
+            
+            // Set up event listeners manually as backup
+            const yearFilter = document.getElementById('yearFilter');
+            const typeFilter = document.getElementById('typeFilter');
+            const topicFilter = document.getElementById('topicFilter');
+            const sortSelect = document.getElementById('sortBy');
+            
+            if (yearFilter) {
+                yearFilter.addEventListener('change', filterPublications);
+                console.log('Year filter event listener added');
+            }
+            if (typeFilter) {
+                typeFilter.addEventListener('change', filterPublications);
+                console.log('Type filter event listener added');
+            }
+            if (topicFilter) {
+                topicFilter.addEventListener('change', filterPublications);
+                console.log('Topic filter event listener added');
+            }
+            if (sortSelect) {
+                sortSelect.addEventListener('change', sortPublications);
+                console.log('Sort event listener added');
+            }
+            
+            // Initialize functions
             filterPublications();
             searchPublications();
             sortPublications();
