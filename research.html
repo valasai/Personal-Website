@@ -4,625 +4,454 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research - Dr. Gordhan Das Valasai</title>
-    <meta name="description" content="Research overview of Dr. Gordhan Das Valasai, focusing on energy systems modeling, green hydrogen integration, and decarbonization strategies for Pakistan and the Middle East.">
-    <meta name="keywords" content="energy systems modeling, green hydrogen, decarbonization, LEAP, TIMES, EnergyPLAN, OSeMOSYS, renewable energy research">
+    <meta name="description" content="Research focus areas, methodologies, and impact of Dr. Gordhan Das Valasai in energy systems modeling, decarbonization strategies, and green hydrogen integration.">
+    <meta name="keywords" content="Research, Energy Systems, Decarbonization, Green Hydrogen, Energy Modeling, Dr. Gordhan Das Valasai">
+    <meta name="author" content="Dr. Gordhan Das Valasai">
     
+    <!-- Open Graph & SEO Meta Tags -->
+    <link rel="canonical" href="https://gordhanvalasai.com/research.html">
+    <meta property="og:title" content="Research - Dr. Gordhan Das Valasai">
+    <meta property="og:description" content="Research focus areas, methodologies, and impact in energy systems modeling, decarbonization strategies, and green hydrogen integration.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gordhanvalasai.com/research.html">
+    <meta property="og:image" content="https://gordhanvalasai.com/images/dr-valasai-profile.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Research - Dr. Gordhan Das Valasai">
+    <meta name="twitter:description" content="Research focus areas, methodologies, and impact in energy systems modeling and decarbonization strategies.">
+    <meta name="twitter:image" content="https://gordhanvalasai.com/images/dr-valasai-profile.jpg">
+    <meta name="theme-color" content="#0f172a">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html">Dr. Gordhan Das Valasai</a>
-            </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="research.html" class="nav-link active">Research</a>
-                <a href="publications.html" class="nav-link">Publications</a>
-                <a href="teaching.html" class="nav-link">Teaching</a>
-                <a href="books.html" class="nav-link">Books</a>
-                <a href="activities.html" class="nav-link">Activities</a>
-                <a href="consulting.html" class="nav-link">Consulting</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-            </div>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1>Research</h1>
-            <p class="page-subtitle">Energy Systems Modeling and Decarbonization Strategies</p>
-        </div>
-    </section>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav-brand">Dr. Gordhan Das Valasai</a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="research.html" class="nav-link active">Research</a>
+                </li>
+                <li class="nav-item">
+                    <a href="publications.html" class="nav-link">Publications</a>
+                </li>
+                <li class="nav-item">
+                    <a href="teaching.html" class="nav-link">Teaching</a>
+                </li>
+                <li class="nav-item">
+                    <a href="books.html" class="nav-link">Books</a>
+                </li>
+                <li class="nav-item">
+                    <a href="activities.html" class="nav-link">Activities</a>
+                </li>
+                <li class="nav-item">
+                    <a href="consulting.html" class="nav-link">Consulting</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
 
-    <!-- Research Dashboard -->
-    <section class="research-dashboard">
-        <div class="container">
-            <div class="section-header">
-                <h2>Research Impact Dashboard</h2>
-                <p>Real-time metrics from academic platforms</p>
-            </div>
-            <div class="dashboard-grid">
-                <!-- Google Scholar Box -->
-                <div class="dashboard-box google-scholar">
-                    <div class="dashboard-header">
-                        <div class="platform-logo">
-                            <i class="fas fa-graduation-cap"></i>
-                            <h3>Google Scholar</h3>
-                        </div>
-                        <div class="platform-link">
-                            <a href="https://scholar.google.com/citations?user=036018090270" target="_blank" rel="noopener">View Profile <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                    <div class="dashboard-stats">
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <div class="stat-number">1892</div>
-                                <div class="stat-label">Total Citations</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">17</div>
-                                <div class="stat-label">h-index</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">20</div>
-                                <div class="stat-label">i10-index</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">1618</div>
-                                <div class="stat-label">Since 2020</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dashboard-footer">
-                        <div class="update-info">
-                            <i class="fas fa-clock"></i>
-                            <span>Last updated: Recently</span>
-                        </div>
-                        <div class="widget-embed">
-                            <div class="scholar-widget">
-                                <h4>Recent Publications</h4>
-                                <div class="publication-list">
-                                    <div class="pub-item">
-                                        <span class="pub-title">Pathways for Pakistan's Low-Carbon Transition</span>
-                                        <span class="pub-citations">5 citations</span>
-                                    </div>
-                                    <div class="pub-item">
-                                        <span class="pub-title">Numerical Investigation of Hybrid Immersion Cooling</span>
-                                        <span class="pub-citations">3 citations</span>
-                                    </div>
-                                    <div class="pub-item">
-                                        <span class="pub-title">Design and Development of Geothermal-based Cooling</span>
-                                        <span class="pub-citations">2 citations</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ResearchGate Box -->
-                <div class="dashboard-box researchgate">
-                    <div class="dashboard-header">
-                        <div class="platform-logo">
-                            <i class="fab fa-researchgate"></i>
-                            <h3>ResearchGate</h3>
-                        </div>
-                        <div class="platform-link">
-                            <a href="https://www.researchgate.net/profile/Gordhan-Valasai" target="_blank" rel="noopener">View Profile <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                    <div class="dashboard-stats">
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <div class="stat-number">1490</div>
-                                <div class="stat-label">Research Interest Score</div>
-                                <div class="stat-change positive">+2.1 this week</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">1654</div>
-                                <div class="stat-label">Citations</div>
-                                <div class="stat-change positive">+3 this week</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">110615</div>
-                                <div class="stat-label">Reads</div>
-                                <div class="stat-change positive">+51 this week</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">273</div>
-                                <div class="stat-label">Recommendations</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dashboard-footer">
-                        <div class="ranking-info">
-                            <div class="ranking-item">
-                                <span class="ranking-text">Higher than 94% of ResearchGate members</span>
-                            </div>
-                            <div class="ranking-item">
-                                <span class="ranking-text">Higher than 92% of researchers who first published in 2005</span>
-                            </div>
-                        </div>
-                        <div class="update-info">
-                            <i class="fas fa-clock"></i>
-                            <span>Last updated: Recently</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Overview -->
-    <section class="research-overview">
-        <div class="container">
-            <div class="section-header">
-                <h2>Research Overview</h2>
-            </div>
-            <div class="overview-content">
-                    <div class="overview-text">
-                        <p>
-                            My research focuses on developing integrated modeling frameworks for sustainable energy transitions, with particular emphasis on the intersection of climate, energy, water, and food systems (CLEWS). I employ advanced optimization techniques, artificial intelligence, and system dynamics modeling to address critical challenges in energy planning, renewable energy integration, green hydrogen economics, and energy equity.
-                        </p>
-                        <p>
-                            My work spans multiple scales—from community-level microgrids to national energy systems and international energy corridors. I collaborate with institutions across Pakistan, Turkey, Australia, Saudi Arabia, the United States, and Europe, maintaining active research profiles on ResearchGate with over 110615 reads and 1654 citations. The ultimate goal is to provide evidence-based, implementable solutions that enable developing and developed nations to achieve climate commitments while ensuring energy security, economic development, and social equity.
-                        </p>
-                    </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Focus Areas -->
-    <section class="research-focus-areas">
-        <div class="container">
-            <div class="section-header">
-                <h2>Research Focus Areas</h2>
-            </div>
-            <div class="focus-areas-container">
-                <div class="focus-area">
-                    <div class="focus-header">
-                        <i class="fas fa-atom"></i>
-                        <h4>Hydrogen Energy Modelling</h4>
-                    </div>
-                    <p>Development of comprehensive models for hydrogen production, storage, transportation, and international trade corridors, including techno-economic analysis and policy frameworks for hydrogen deployment.</p>
-                    <div class="focus-details">
-                        <div class="tools-used">
-                            <strong>Tools:</strong> OSeMOSYS, Pyomo, Julia/JuMP, Gurobi, GLPK
-                        </div>
-                    </div>
-                </div>
-
-                <div class="focus-area">
-                    <div class="focus-header">
-                        <i class="fas fa-bolt"></i>
-                        <h4>Energy Systems Modeling</h4>
-                    </div>
-                    <p>Comprehensive modeling of energy systems using advanced optimization techniques, including capacity expansion planning, dispatch optimization, and integrated resource planning for sustainable energy transitions.</p>
-                    <div class="focus-details">
-                        <div class="tools-used">
-                            <strong>Tools:</strong> TIMES, LEAP, OSeMOSYS, Pyomo, Gurobi, PLEXOS
-                        </div>
-                    </div>
-                </div>
-
-                <div class="focus-area">
-                    <div class="focus-header">
-                        <i class="fas fa-leaf"></i>
-                        <h4>Low Carbon Development</h4>
-                    </div>
-                    <p>Research on pathways for low-carbon energy transitions, including renewable energy integration, carbon reduction strategies, and sustainable development policies for emerging economies.</p>
-                    <div class="focus-details">
-                        <div class="tools-used">
-                            <strong>Tools:</strong> LEAP, TIMES, Policy Analysis Models, Carbon Footprint Assessment
-                        </div>
-                    </div>
-                </div>
-
-                <div class="focus-area">
-                    <div class="focus-header">
-                        <i class="fas fa-tint"></i>
-                        <h4>Water-Energy Nexus</h4>
-                    </div>
-                    <p>Integrated modeling of water and energy systems, addressing the complex interdependencies between water resources and energy production, including thermal power plant water requirements and renewable energy water impacts.</p>
-                    <div class="focus-details">
-                        <div class="tools-used">
-                            <strong>Tools:</strong> System Dynamics, Pyomo, Gurobi, Water-Energy Models
-                        </div>
-                    </div>
-                </div>
-
-                <div class="focus-area">
-                    <div class="focus-header">
-                        <i class="fas fa-chart-line"></i>
-                        <h4>Energy Economics</h4>
-                    </div>
-                    <p>Economic analysis of energy systems, including cost-benefit analysis, market modeling, pricing mechanisms, and economic impact assessment of energy policies and renewable energy investments.</p>
-                    <div class="focus-details">
-                        <div class="tools-used">
-                            <strong>Tools:</strong> Economic Models, Cost Analysis, Market Simulation, Policy Impact Assessment
-                        </div>
-                    </div>
-                </div>
-
-                <div class="focus-area">
-                    <div class="focus-header">
-                        <i class="fas fa-cog"></i>
-                        <h4>Smart Grid Modeling</h4>
-                    </div>
-                    <p>Advanced modeling of smart grid technologies, including distributed energy resources, demand response, energy storage systems, and grid modernization strategies for enhanced reliability and efficiency.</p>
-                    <div class="focus-details">
-                        <div class="tools-used">
-                            <strong>Tools:</strong> Grid Simulation, Power System Analysis, Optimization Algorithms, Smart Grid Technologies
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Current Research Projects -->
-    <section class="current-projects">
-        <div class="container">
-            <div class="section-header">
-                <h2>Current Research Projects</h2>
-            </div>
-            <div class="projects-list">
-                <div class="simple-project">
-                    <h3>2025-2027</h3>
-                    <p>Global Hydrogen Export Business Index (GHEBI)</p>
-                </div>
-                <div class="simple-project">
-                    <h3>2025-2027</h3>
-                    <p>Pakistan-Middle East Hydrogen Corridor</p>
-                </div>
-                <div class="simple-project">
-                    <h3>2025-2027</h3>
-                    <p>Gulf-EU-NWA Hydrogen Corridor</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Past Research Projects -->
-    <section class="past-projects">
-        <div class="container">
-            <div class="section-header">
-                <h2>Past Research Projects</h2>
-            </div>
-            <div class="projects-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-year">2021-2022</div>
-                    <div class="timeline-content">
-                        <h3>British Council Funded Project</h3>
-                        <div class="project-meta">
-                            <span class="funding">£12,000</span>
-                            <span class="location">Helario, Tharparkar</span>
-                        </div>
-                        <p>
-                            Led a comprehensive project in rural Sindh focusing on sustainable energy solutions and community development. The project included skills development workshops, scholarship hunting seminars, and rural electricity options assessment.
-                        </p>
-                        <div class="project-outcomes">
-                            <h4>Key Outcomes:</h4>
-                            <ul>
-                                <li>Conducted skills development lecture in Tharparkar (2022)</li>
-                                <li>Organized scholarship hunting workshops in Mithi (2022)</li>
-                                <li>Delivered rural electricity options workshop (2022)</li>
-                                <li>Established community partnerships for future projects</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-year">2014-2015</div>
-                    <div class="timeline-content">
-                        <h3>PhD Research at Hacettepe University</h3>
-                        <div class="project-meta">
-                            <span class="funding">HEC Indigenous PhD Scholarship</span>
-                            <span class="location">Turkey</span>
-                        </div>
-                        <p>
-                            Conducted doctoral research on energy systems modeling and renewable energy integration, laying the foundation for my current research focus on decarbonization strategies.
-                        </p>
-                        <div class="project-outcomes">
-                            <h4>Research Contributions:</h4>
-                            <ul>
-                                <li>Developed novel modeling approaches for renewable energy integration</li>
-                                <li>Published multiple peer-reviewed papers</li>
-                                <li>Established international research collaborations</li>
-                                <li>Gained expertise in advanced energy modeling tools</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Tools & Software -->
-    <section class="research-tools">
-        <div class="container">
-            <div class="section-header">
-                <h2>Research Tools & Software</h2>
-            </div>
-            <div class="tools-grid">
-                <div class="tool-category">
-                    <h3>Energy Systems Modeling</h3>
-                    <div class="tools-list">
-                        <div class="tool-item">
-                            <h4>AnswerTIMES (MARKAL)</h4>
-                            <p>The Integrated MARKAL-EFOM System for energy system optimization and scenario analysis</p>
-                        </div>
-                        <div class="tool-item">
-                            <h4>LEAP Energy Model</h4>
-                            <p>Long-range Energy Alternatives Planning system for integrated energy planning and policy analysis</p>
-                        </div>
-                        <div class="tool-item">
-                            <h4>Energy Economics Tools</h4>
-                            <p>Economic analysis tools for energy system modeling and policy evaluation</p>
-                        </div>
-                        <div class="tool-item">
-                            <h4>Policy Analysis Models</h4>
-                            <p>Models for analyzing energy policy impacts and sustainability indicators</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tool-category">
-                    <h3>Renewable Energy Analysis</h3>
-                    <div class="tools-list">
-                        <div class="tool-item">
-                            <h4>HOMER</h4>
-                            <p>Hybrid Optimization Model for Electric Renewables for microgrid design</p>
-                        </div>
-                        <div class="tool-item">
-                            <h4>PLEXOS</h4>
-                            <p>Integrated Energy Model for electricity market simulation and optimization</p>
-                        </div>
-                        <div class="tool-item">
-                            <h4>RETScreen</h4>
-                            <p>Clean Energy Management Software for renewable energy project analysis</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tool-category">
-                    <h3>Programming & Optimization</h3>
-                    <div class="tools-list">
-                        <div class="tool-item">
-                            <h4>Python</h4>
-                            <p>Data analysis, visualization, and custom model development</p>
-                        </div>
-                        <div class="tool-item">
-                            <h4>Pyomo/Gurobi</h4>
-                            <p>Mathematical optimization and linear programming for energy models</p>
-                        </div>
-                        <div class="tool-item">
-                            <h4>MATLAB</h4>
-                            <p>Numerical analysis and algorithm development for energy systems</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Funding Secured -->
-    <section class="funding">
-        <div class="container">
-            <div class="section-header">
-                <h2>Funding Secured</h2>
-            </div>
-            <div class="funding-grid">
-                <div class="funding-item">
-                    <div class="funding-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <div class="funding-details">
-                        <h3>TÜBİTAK Research Fellowship</h3>
-                        <div class="funding-amount">€22,000</div>
-                        <div class="funding-period">2014-2015</div>
-                        <p>International Research Fellowship at Hacettepe University, Turkey</p>
-                    </div>
-                </div>
-
-                <div class="funding-item">
-                    <div class="funding-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <div class="funding-details">
-                        <h3>British Council Grant</h3>
-                        <div class="funding-amount">£12,000</div>
-                        <div class="funding-period">2021-2022</div>
-                        <p>Community development project in Helario, Tharparkar focusing on sustainable energy solutions</p>
-                    </div>
-                </div>
-
-                <div class="funding-item">
-                    <div class="funding-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="funding-details">
-                        <h3>HEC Indigenous PhD Scholarship</h3>
-                        <div class="funding-amount">Full Scholarship</div>
-                        <div class="funding-period">2014-2015</div>
-                        <p>Higher Education Commission scholarship for doctoral research at Hacettepe University, Turkey</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Impact and Metrics -->
-    <section class="research-impact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Research Impact and Metrics</h2>
-            </div>
-            <div class="impact-grid">
-                <div class="impact-item">
-                    <div class="impact-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="impact-content">
-                        <h3>110615</h3>
-                        <p>Research Reads on ResearchGate</p>
-                    </div>
-                </div>
-                <div class="impact-item">
-                    <div class="impact-icon">
-                        <i class="fas fa-quote-left"></i>
-                    </div>
-                    <div class="impact-content">
-                        <h3>1654</h3>
-                        <p>Research Citations</p>
-                    </div>
-                </div>
-                <div class="impact-item">
-                    <div class="impact-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <div class="impact-content">
-                        <h3>40+</h3>
-                        <p>Peer-Reviewed Publications</p>
-                    </div>
-                </div>
-                <div class="impact-item">
-                    <div class="impact-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="impact-content">
-                        <h3>1,000+</h3>
-                        <p>Households Benefited from Rural Electrification</p>
-                    </div>
-                </div>
-                <div class="impact-item">
-                    <div class="impact-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <div class="impact-content">
-                        <h3>8</h3>
-                        <p>Countries with Research Collaborations</p>
-                    </div>
-                </div>
-                <div class="impact-item">
-                    <div class="impact-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="impact-content">
-                        <h3>15+</h3>
-                        <p>Students Supervised (PhD, MS, Undergraduate)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Future Research Directions -->
-    <section class="future-research">
-        <div class="container">
-            <div class="section-header">
-                <h2>Future Research Directions</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-period">2025-2027</div>
-                        <h3 class="timeline-title">Near-term Research Goals</h3>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Expansion of AI-driven forecasting to all renewable energy zones in Pakistan</li>
-                                <li>Integration of hydrogen production with renewable energy curtailment</li>
-                                <li>Development of national-scale WEF nexus models for South Asia</li>
-                                <li>Advanced battery storage optimization with vehicle-to-grid integration</li>
-                                <li>Climate adaptation strategies for energy infrastructure</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-period">2027-2030</div>
-                        <h3 class="timeline-title">Medium-term Research Vision</h3>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Regional energy integration models (SAARC countries)</li>
-                                <li>Deep decarbonization pathways for Pakistan (2050 net-zero scenarios)</li>
-                                <li>Circular economy integration in energy systems</li>
-                                <li>Nature-based solutions in energy planning</li>
-                                <li>Advanced AI for real-time grid operations</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-period">2030+</div>
-                        <h3 class="timeline-title">Long-term Research Aspirations</h3>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Carbon capture and utilization integration</li>
-                                <li>Synthetic fuels and e-fuels production pathways</li>
-                                <li>Space-based solar power feasibility</li>
-                                <li>Quantum computing applications in energy optimization</li>
-                                <li>Global energy transitions comparative analysis</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Collaborations and Partnerships -->
-    <section class="collaborations">
-        <div class="container">
-            <div class="section-header">
-                <h2>Collaborations and Partnerships</h2>
-            </div>
-            <div class="collaboration-content">
-                <div class="collaboration-text">
-                    <p>
-                        I maintain active collaborations with international research institutions and organizations to advance energy systems research. These partnerships enable knowledge exchange, joint research projects, and capacity building in Pakistan's energy sector.
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Page Header -->
+        <section class="hero" style="min-height: 60vh; padding-top: 120px;">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Research</h1>
+                    <p class="hero-subtitle">Problems • Methods • Measurable Impact</p>
+                    <p class="hero-description">
+                        Advancing energy systems modeling, decarbonization strategies, and sustainable energy policy 
+                        through rigorous research and verifiable outcomes.
                     </p>
                 </div>
-                <div class="partnerships-grid">
-                    <div class="partnership-item">
-                        <h4>International Collaborations</h4>
-                        <ul>
-                            <li>TÜBİTAK (Turkey) - Research fellowship and joint projects</li>
-                            <li>British Council (UK) - Community development initiatives</li>
-                            <li>Hacettepe University (Turkey) - Academic exchange and research</li>
-                            <li>Open University (UK) - Professional development programs</li>
-                        </ul>
+            </div>
+        </section>
+
+        <!-- Research Impact Summary -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item animate-fade-in-up">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <span class="stat-number">26</span>
+                        <span class="stat-label">Publications</span>
                     </div>
-                    <div class="partnership-item">
-                        <h4>National Partnerships</h4>
-                        <ul>
-                            <li>Higher Education Commission (HEC) - Research funding and scholarships</li>
-                            <li>Quaid-e-Awam University (QUEST) - Institutional research support</li>
-                            <li>Local communities in Sindh - Field research and implementation</li>
-                            <li>Industry partners - Technology transfer and application</li>
-                        </ul>
+                    <div class="stat-item animate-fade-in-up">
+                        <div class="stat-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <span class="stat-number">1,892</span>
+                        <span class="stat-label">Google Scholar Citations</span>
+                    </div>
+                    <div class="stat-item animate-fade-in-up">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="stat-number">17</span>
+                        <span class="stat-label">H-Index</span>
+                    </div>
+                    <div class="stat-item animate-fade-in-up">
+                        <div class="stat-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <span class="stat-number">110,615</span>
+                        <span class="stat-label">ResearchGate Reads</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Focus Areas -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Research Focus Areas</h2>
+                    <p class="section-subtitle">
+                        Specialized expertise in energy systems modeling, decarbonization strategies, and sustainable energy policy
+                    </p>
+                </div>
+                
+                <div class="grid grid-3">
+                    <div class="card animate-fade-in-up">
+                        <div class="card-header">
+                            <div class="card-subtitle">Energy Systems Modeling</div>
+                            <h3 class="card-title">AnswerTIMES Framework</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Problem:</strong> Need for comprehensive energy system optimization for Pakistan's energy transition.</p>
+                            <p><strong>Method:</strong> TIMES/LEAP/OSeMOSYS modeling frameworks with custom optimization algorithms.</p>
+                            <p><strong>Impact:</strong> Modeled hydrogen LCOE for Pakistan using TIMES/LEAP/OSeMOSYS; evidence in published papers.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://github.com/gordhanvalasai/answertimes-pakistan" class="btn btn-ghost" target="_blank">
+                                <i class="fab fa-github"></i>
+                                GitHub Repository
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="card animate-fade-in-up">
+                        <div class="card-header">
+                            <div class="card-subtitle">Green Hydrogen Economics</div>
+                            <h3 class="card-title">Pyomo/Gurobi Optimization</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Problem:</strong> Economic viability assessment of green hydrogen pathways in developing countries.</p>
+                            <p><strong>Method:</strong> Mathematical optimization using Pyomo/Gurobi with economic constraints.</p>
+                            <p><strong>Impact:</strong> Pyomo/Gurobi optimization for hydrogen pathways; results documented in peer-reviewed articles.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://github.com/gordhanvalasai/hydrogen-optimization" class="btn btn-ghost" target="_blank">
+                                <i class="fab fa-github"></i>
+                                Code Repository
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="card animate-fade-in-up">
+                        <div class="card-header">
+                            <div class="card-subtitle">Energy Security Assessment</div>
+                            <h3 class="card-title">Composite Indices</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Problem:</strong> Quantifying energy security for policy decision-making in Pakistan.</p>
+                            <p><strong>Method:</strong> Composite energy security indices with multiple indicators and weighting schemes.</p>
+                            <p><strong>Impact:</strong> Composite energy security indices for Pakistan published in Ecological Indicators (2019).</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://doi.org/10.1016/j.ecolind.2019.105589" class="btn btn-ghost" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Paper
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="card animate-fade-in-up">
+                        <div class="card-header">
+                            <div class="card-subtitle">Smart Grid Integration</div>
+                            <h3 class="card-title">LEAP Demand Modeling</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Problem:</strong> Smart grid integration challenges in developing country contexts.</p>
+                            <p><strong>Method:</strong> LEAP demand modeling and Python optimization for smart grid scenarios.</p>
+                            <p><strong>Impact:</strong> LEAP demand modeling and Python optimization for smart grid scenarios; methodology published.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://github.com/gordhanvalasai/leap-scenarios" class="btn btn-ghost" target="_blank">
+                                <i class="fab fa-github"></i>
+                                LEAP Scenarios
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="card animate-fade-in-up">
+                        <div class="card-header">
+                            <div class="card-subtitle">Water-Energy Nexus</div>
+                            <h3 class="card-title">OSeMOSYS Water Modules</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Problem:</strong> Water-energy interdependencies in Pakistan's thermal generation sector.</p>
+                            <p><strong>Method:</strong> OSeMOSYS with water modules for integrated resource optimization.</p>
+                            <p><strong>Impact:</strong> OSeMOSYS with water modules for Pakistan's thermal generation water assessment.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://github.com/gordhanvalasai/water-energy-nexus" class="btn btn-ghost" target="_blank">
+                                <i class="fab fa-github"></i>
+                                Water-Energy Model
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="card animate-fade-in-up">
+                        <div class="card-header">
+                            <div class="card-subtitle">Renewable Energy Planning</div>
+                            <h3 class="card-title">Multi-Criteria Analysis</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Problem:</strong> Optimal renewable energy resource selection for Pakistan.</p>
+                            <p><strong>Method:</strong> Multi-criteria renewable resource selection framework.</p>
+                            <p><strong>Impact:</strong> Multi-criteria renewable resource selection (Processes/RSER papers); decision framework documented.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="publications.html?tag=renewable" class="btn btn-ghost">
+                                <i class="fas fa-book"></i>
+                                View Publications
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: var(--space-3xl);">
+                    <p><small>Last updated: October 2024 | All impact statements backed by published papers or documented methodology</small></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Tools & Software -->
+        <section class="section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Research Tools & Software</h2>
+                </div>
+                <div class="grid grid-3">
+                    <div class="card animate-fade-in-up">
+                        <div class="card-header">
+                            <h3 class="card-title">Energy Systems Modeling</h3>
+                        </div>
+                        <div class="card-body">
+                            <div style="margin-bottom: var(--space-lg);">
+                                <h4 style="color: var(--accent); margin-bottom: var(--space-sm);">AnswerTIMES (MARKAL)</h4>
+                                <p style="font-size: var(--text-sm); color: var(--text-secondary);">The Integrated MARKAL-EFOM System for energy system optimization and scenario analysis</p>
+                            </div>
+                            <div style="margin-bottom: var(--space-lg);">
+                                <h4 style="color: var(--accent); margin-bottom: var(--space-sm);">LEAP Energy Model</h4>
+                                <p style="font-size: var(--text-sm); color: var(--text-secondary);">Long-range Energy Alternatives Planning system for integrated energy planning and policy analysis</p>
+                            </div>
+                            <div style="margin-bottom: var(--space-lg);">
+                                <h4 style="color: var(--accent); margin-bottom: var(--space-sm);">Energy Economics Tools</h4>
+                                <p style="font-size: var(--text-sm); color: var(--text-secondary);">Economic analysis tools for energy system modeling and policy evaluation</p>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--accent); margin-bottom: var(--space-sm);">Policy Analysis Models</h4>
+                                <p style="font-size: var(--text-sm); color: var(--text-secondary);">Models for analyzing energy policy impacts and sustainability indicators</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card animate-fade-in-up">
+                        <div class="card-header">
+                            <h3 class="card-title">Renewable Energy Analysis</h3>
+                        </div>
+                        <div class="card-body">
+                            <div style="margin-bottom: var(--space-lg);">
+                                <h4 style="color: var(--accent); margin-bottom: var(--space-sm);">HOMER</h4>
+                                <p style="font-size: var(--text-sm); color: var(--text-secondary);">Hybrid Optimization Model for Electric Renewables for microgrid design</p>
+                            </div>
+                            <div style="margin-bottom: var(--space-lg);">
+                                <h4 style="color: var(--accent); margin-bottom: var(--space-sm);">PLEXOS</h4>
+                                <p style="font-size: var(--text-sm); color: var(--text-secondary);">Integrated Energy Model for electricity market simulation and optimization</p>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--accent); margin-bottom: var(--space-sm);">RETScreen</h4>
+                                <p style="font-size: var(--text-sm); color: var(--text-secondary);">Clean Energy Management Software for renewable energy project analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card animate-fade-in-up">
+                        <div class="card-header">
+                            <h3 class="card-title">Programming & Optimization</h3>
+                        </div>
+                        <div class="card-body">
+                            <div style="margin-bottom: var(--space-lg);">
+                                <h4 style="color: var(--accent); margin-bottom: var(--space-sm);">Python</h4>
+                                <p style="font-size: var(--text-sm); color: var(--text-secondary);">Data analysis, visualization, and custom model development</p>
+                            </div>
+                            <div style="margin-bottom: var(--space-lg);">
+                                <h4 style="color: var(--accent); margin-bottom: var(--space-sm);">Pyomo/Gurobi</h4>
+                                <p style="font-size: var(--text-sm); color: var(--text-secondary);">Mathematical optimization and linear programming for energy models</p>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--accent); margin-bottom: var(--space-sm);">MATLAB</h4>
+                                <p style="font-size: var(--text-sm); color: var(--text-secondary);">Numerical analysis and algorithm development for energy systems</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Highlights -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Impact Highlights</h2>
+                    <p class="section-subtitle">
+                        Verifiable research impact with documented evidence and measurable outcomes
+                    </p>
+                </div>
+                
+                <div class="grid grid-3">
+                    <div class="card animate-fade-in-up">
+                        <div class="card-header">
+                            <div class="stat-icon" style="margin: 0 0 var(--space-md) 0;">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3 class="card-title">Highly Cited Research</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Energy Security Assessment paper published in Ecological Indicators with significant citations and impact in energy policy research.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://doi.org/10.1016/j.ecolind.2019.105589" class="btn btn-ghost" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Paper
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="card animate-fade-in-up">
+                        <div class="card-header">
+                            <div class="stat-icon" style="margin: 0 0 var(--space-md) 0;">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3 class="card-title">Energy Policy Publications</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Multiple publications in high-impact journals including Renewable and Sustainable Energy Reviews, Energy Policy, and Ecological Indicators.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="publications.html" class="btn btn-ghost">
+                                <i class="fas fa-list"></i>
+                                View All Publications
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="card animate-fade-in-up">
+                        <div class="card-header">
+                            <div class="stat-icon" style="margin: 0 0 var(--space-md) 0;">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3 class="card-title">International Collaborations</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Research collaborations with institutions in Turkey, Saudi Arabia, and other countries, contributing to global energy transition knowledge.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="activities.html" class="btn btn-ghost">
+                                <i class="fas fa-handshake"></i>
+                                View Activities
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Past Research Projects -->
+        <section class="section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Past Research Projects</h2>
+                </div>
+                <div class="grid grid-2">
+                    <div class="card animate-fade-in-up">
+                        <div class="card-header">
+                            <div class="card-subtitle">2021-2022</div>
+                            <h3 class="card-title">British Council Funded Project</h3>
+                            <div style="color: var(--accent); font-weight: 600; font-size: var(--text-sm);">£12,000</div>
+                        </div>
+                        <div class="card-body">
+                            <p>Led a comprehensive project in rural Sindh focusing on sustainable energy solutions and community development. The project included skills development workshops, scholarship hunting seminars, and rural electricity options assessment.</p>
+                            <div style="margin-top: var(--space-lg);">
+                                <h4 style="color: var(--primary); font-size: var(--text-base); margin-bottom: var(--space-sm);">Key Outcomes:</h4>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm);">✓ Conducted skills development lecture in Tharparkar (2022)</li>
+                                    <li style="position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm);">✓ Organized scholarship hunting workshops in Mithi (2022)</li>
+                                    <li style="position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm);">✓ Delivered rural electricity options workshop (2022)</li>
+                                    <li style="position: relative; padding-left: var(--space-lg);">✓ Established community partnerships for future projects</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card animate-fade-in-up">
+                        <div class="card-header">
+                            <div class="card-subtitle">2014-2015</div>
+                            <h3 class="card-title">PhD Research at Hacettepe University</h3>
+                            <div style="color: var(--accent); font-weight: 600; font-size: var(--text-sm);">HEC Indigenous PhD Scholarship</div>
+                        </div>
+                        <div class="card-body">
+                            <p>Conducted doctoral research on energy systems modeling and renewable energy integration, laying the foundation for my current research focus on decarbonization strategies.</p>
+                            <div style="margin-top: var(--space-lg);">
+                                <h4 style="color: var(--primary); font-size: var(--text-base); margin-bottom: var(--space-sm);">Research Contributions:</h4>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm);">✓ Developed novel modeling approaches for renewable energy integration</li>
+                                    <li style="position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm);">✓ Published multiple peer-reviewed papers</li>
+                                    <li style="position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm);">✓ Established international research collaborations</li>
+                                    <li style="position: relative; padding-left: var(--space-lg);">✓ Gained expertise in advanced energy modeling tools</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -630,40 +459,60 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Dr. Gordhan Das Valasai</h3>
-                    <p>Associate Professor of Mechanical Engineering<br>
-                    Quaid-e-Awam University of Engineering, Science & Technology (QUEST)<br>
-                    Nawabshah, Pakistan</p>
+                    <p>Associate Professor of Environmental Engineering</p>
+                    <p>Quaid-e-Awam University of Engineering, Science & Technology (QUEST)</p>
+                    <p>Nawabshah, Pakistan</p>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h3>Quick Links</h3>
                     <ul>
                         <li><a href="research.html">Research</a></li>
                         <li><a href="publications.html">Publications</a></li>
                         <li><a href="teaching.html">Teaching</a></li>
                         <li><a href="books.html">Books</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                        <li><a href="consulting.html">Consulting</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p><i class="fas fa-envelope"></i> valasai@quest.edu.pk</p>
-                    <p><i class="fas fa-phone"></i> +92 244-9370381-85 Ext. 2622</p>
+                    <h3>Contact Information</h3>
+                    <p><strong>Email:</strong> valasai@gmail.com</p>
+                    <p><strong>Office:</strong> valasai@quest.edu.pk</p>
+                    <p><strong>Phone:</strong> +92 333 2743180</p>
+                    <p><strong>Office:</strong> +92 244-9370381-85 Ext. 2622</p>
+                    <p><strong>Office Hours:</strong> Mon-Fri 9:00-17:00</p>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Follow Me</h4>
+                    <h3>Follow & Connect</h3>
                     <div class="social-links">
-                        <a href="https://www.researchgate.net/profile/Gordhan-Valasai" target="_blank" rel="noopener"><i class="fab fa-researchgate"></i></a>
-                        <a href="https://orcid.org/0000-0002-0476-4927" target="_blank" rel="noopener"><i class="fab fa-orcid"></i></a>
-                        <a href="https://ideas.repec.org/f/pva647.html" target="_blank" rel="noopener"><i class="fas fa-graduation-cap"></i></a>
-                        <a href="https://livedna.net/?dna=92.42391" target="_blank" rel="noopener"><i class="fas fa-dna"></i></a>
+                        <a href="https://www.researchgate.net/profile/Gordhan-Valasai" class="social-link" target="_blank" aria-label="ResearchGate">
+                            <i class="fab fa-researchgate"></i>
+                        </a>
+                        <a href="https://orcid.org/0000-0000-0000-0000" class="social-link" target="_blank" aria-label="ORCID">
+                            <i class="fab fa-orcid"></i>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=gordhanvalasai" class="social-link" target="_blank" aria-label="Google Scholar">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/gordhanvalasai" class="social-link" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
                     </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
                 <p>&copy; 2024 Dr. Gordhan Das Valasai. All rights reserved.</p>
+                <p><small>Last updated: October 2024 | Metrics from Google Scholar and ResearchGate</small></p>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>

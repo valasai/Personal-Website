@@ -1,358 +1,221 @@
-// Mobile Navigation Toggle
+// ===== COMPLETE WEBSITE REDESIGN - JAVASCRIPT =====
+
+// DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all components
+    initNavigation();
+    initScrollEffects();
+    initAnimations();
+    initMobileMenu();
+    initEmailObfuscation();
+    initResearchChips();
+    initPublicationInteractions();
+    initPerformanceOptimizations();
+    initAccessibility();
+});
+
+// ===== NAVIGATION =====
+function initNavigation() {
+    const header = document.getElementById('header');
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    // Toggle mobile menu
-    navToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
+    
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     });
-
-    // Close mobile menu when clicking on a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+    
+    // Mobile menu toggle
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+    }
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+    
+    // Active navigation link
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// ===== SCROLL EFFECTS =====
+function initScrollEffects() {
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         });
     });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!navToggle.contains(event.target) && !navMenu.contains(event.target)) {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
+    
+    // Scroll progress indicator
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    progressBar.innerHTML = '<div class="scroll-progress-bar"></div>';
+    document.body.appendChild(progressBar);
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        
+        const progressBarElement = document.querySelector('.scroll-progress-bar');
+        if (progressBarElement) {
+            progressBarElement.style.width = scrollPercent + '%';
         }
     });
-});
+}
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Navbar scroll effect
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.backdropFilter = 'blur(10px)';
-    } else {
-        navbar.style.backgroundColor = '#ffffff';
-        navbar.style.backdropFilter = 'none';
-    }
-});
-
-// Animate stats on scroll
-function animateStats() {
-    const stats = document.querySelectorAll('.stat-number');
-    const observer = new IntersectionObserver((entries) => {
+// ===== ANIMATIONS =====
+function initAnimations() {
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const stat = entry.target;
-                const finalValue = stat.textContent;
-                const numericValue = parseInt(finalValue.replace(/[^\d]/g, ''));
-                
-                if (!isNaN(numericValue)) {
-                    animateNumber(stat, 0, numericValue, 2000, finalValue);
-                }
-                observer.unobserve(stat);
+                entry.target.classList.add('animate-fade-in-up');
+                observer.unobserve(entry.target);
             }
         });
-    });
-
-    stats.forEach(stat => observer.observe(stat));
-}
-
-function animateNumber(element, start, end, duration, originalText) {
-    const startTime = performance.now();
-    const suffix = originalText.replace(/[\d]/g, '');
+    }, observerOptions);
     
-    function updateNumber(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const current = Math.floor(progress * (end - start) + start);
-        
-        element.textContent = current + suffix;
-        
-        if (progress < 1) {
-            requestAnimationFrame(updateNumber);
-        }
-    }
-    
-    requestAnimationFrame(updateNumber);
-}
-
-// Initialize animations when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    animateStats();
-});
-
-// Form validation and submission (for contact form)
-function validateForm(form) {
-    const inputs = form.querySelectorAll('input[required], textarea[required]');
-    let isValid = true;
-    
-    inputs.forEach(input => {
-        if (!input.value.trim()) {
-            input.classList.add('error');
-            isValid = false;
-        } else {
-            input.classList.remove('error');
-        }
-        
-        // Email validation
-        if (input.type === 'email' && input.value) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(input.value)) {
-                input.classList.add('error');
-                isValid = false;
-            }
-        }
+    // Observe elements for animation
+    const animateElements = document.querySelectorAll('.card, .stat-item, .publication-item, .research-chip');
+    animateElements.forEach(el => {
+        observer.observe(el);
     });
     
-    return isValid;
-}
-
-// Tag-based filtering
-window.filterByTag = function(element, filterValue) {
-    console.log('=== filterByTag called ===');
-    console.log('Filter value:', filterValue);
-    
-    // Remove active class from all tags
-    document.querySelectorAll('.tag').forEach(tag => tag.classList.remove('active'));
-    
-    // Add active class to clicked tag
-    element.classList.add('active');
-    
-    const publications = document.querySelectorAll('.publication-item');
-    const yearSections = document.querySelectorAll('.year-section');
-    
-    let visibleCount = 0;
-    
-    // Filter publications
-    publications.forEach(publication => {
-        const year = publication.dataset.year;
-        const category = publication.dataset.category || '';
-        
-        let show = false;
-        
-        if (filterValue === 'all') {
-            show = true;
-        } else if (filterValue === year) {
-            // Year filter
-            show = true;
-        } else if (category.includes(filterValue)) {
-            // Topic or type filter
-            show = true;
-        }
-        
-        if (show) {
-            publication.style.display = 'block';
-            publication.style.animation = 'fadeIn 0.5s ease-in';
-            visibleCount++;
-        } else {
-            publication.style.display = 'none';
-        }
-    });
-    
-    // Hide year sections with no visible publications
-    yearSections.forEach(section => {
-        const visiblePubs = Array.from(section.querySelectorAll('.publication-item')).filter(pub => {
-            return pub.style.display !== 'none';
-        });
-        
-        if (visiblePubs.length === 0) {
-            section.style.display = 'none';
-        } else {
-            section.style.display = 'block';
-        }
-    });
-    
-    console.log(`✅ Filtered: ${visibleCount} visible publications`);
-}
-
-// Reset filters
-window.resetFilters = function() {
-    const allTag = document.querySelector('.tag[data-filter="all"]');
-    if (allTag) {
-        filterByTag(allTag, 'all');
-    }
-}
-
-// Enhanced Publication filter functionality (kept for backward compatibility)
-window.filterPublications = function() {
-    console.log('=== filterPublications called ===');
-    
-    const yearFilter = document.getElementById('yearFilter');
-    const typeFilter = document.getElementById('typeFilter');
-    const topicFilter = document.getElementById('topicFilter');
-    const publications = document.querySelectorAll('.publication-item');
-    
-    console.log('Found elements:', {
-        yearFilter: !!yearFilter,
-        typeFilter: !!typeFilter,
-        topicFilter: !!topicFilter,
-        publications: publications.length
-    });
-    
-    if (!yearFilter || !typeFilter || !topicFilter) {
-        console.warn('⚠️ Filter elements not found!');
-        return;
-    }
-    
-    const selectedYear = yearFilter.value;
-    const selectedType = typeFilter.value;
-    const selectedTopic = topicFilter.value;
-    
-    console.log('📊 Filter Values:', { selectedYear, selectedType, selectedTopic });
-    
-    let visibleCount = 0;
-    let hiddenCount = 0;
-    
-    publications.forEach((publication, index) => {
-        const year = publication.dataset.year;
-        const category = publication.dataset.category || '';
-        
-        let show = true;
-        let reasons = [];
-        
-        // Year filter
-        if (selectedYear !== 'all' && year !== selectedYear) {
-            show = false;
-            reasons.push(`year mismatch: ${year} !== ${selectedYear}`);
-        }
-        
-        // Type filter - check if category contains the selected type
-        if (selectedType !== 'all' && !category.includes(selectedType)) {
-            show = false;
-            reasons.push(`type not in category: '${selectedType}' not in '${category}'`);
-        }
-        
-        // Topic filter
-        if (selectedTopic !== 'all' && !category.includes(selectedTopic)) {
-            show = false;
-            reasons.push(`topic not in category: '${selectedTopic}' not in '${category}'`);
-        }
-        
-        // Apply visibility
-        if (show) {
-            publication.style.display = 'block';
-            publication.style.animation = 'fadeIn 0.5s ease-in';
-            visibleCount++;
-        } else {
-            publication.style.display = 'none';
-            hiddenCount++;
-        }
-        
-        // Debug logging for first few publications
-        if (index < 5) {
-            console.log(`📄 Publication ${index}:`, {
-                year,
-                category,
-                show,
-                reasons: reasons.length > 0 ? reasons : 'passed all filters'
-            });
-        }
-    });
-    
-    // Hide year sections that have no visible publications
-    const yearSections = document.querySelectorAll('.year-section');
-    let visibleSections = 0;
-    
-    yearSections.forEach(section => {
-        const visiblePubs = Array.from(section.querySelectorAll('.publication-item')).filter(pub => {
-            return pub.style.display !== 'none';
-        });
-        
-        if (visiblePubs.length === 0) {
-            section.style.display = 'none';
-        } else {
-            section.style.display = 'block';
-            visibleSections++;
-        }
-    });
-    
-    console.log(`✅ Results: ${visibleCount} visible publications, ${hiddenCount} hidden (total: ${publications.length})`);
-    console.log(`📅 Year Sections: ${visibleSections} visible, ${yearSections.length - visibleSections} hidden (total: ${yearSections.length})`);
-    console.log('=== filterPublications completed ===');
-}
-
-// Sort publications functionality
-window.sortPublications = function() {
-    const sortSelect = document.getElementById('sortBy');
-    const publicationsContainer = document.querySelector('.publications-container');
-    
-    if (!sortSelect || !publicationsContainer) return;
-    
-    const sortValue = sortSelect.value;
-    const yearSections = Array.from(document.querySelectorAll('.year-section'));
-    
-    // Sort year sections based on selected criteria
-    yearSections.sort((a, b) => {
-        const yearA = parseInt(a.querySelector('.year-header').textContent);
-        const yearB = parseInt(b.querySelector('.year-header').textContent);
-        
-        switch (sortValue) {
-            case 'year-desc':
-                return yearB - yearA;
-            case 'year-asc':
-                return yearA - yearB;
-            case 'citations-desc':
-                // Sort by citations (would need citation data in HTML)
-                return 0;
-            case 'title-asc':
-                // Sort by title alphabetically
-                return 0;
-            default:
-                return yearB - yearA;
-        }
-    });
-    
-    // Re-append sorted sections
-    yearSections.forEach(section => {
-        publicationsContainer.appendChild(section);
+    // Staggered animations for grid items
+    const gridItems = document.querySelectorAll('.grid > *');
+    gridItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.1}s`;
     });
 }
 
-// Search functionality for publications
-function searchPublications() {
-    const searchInput = document.getElementById('publication-search');
-    const publications = document.querySelectorAll('.publication-item');
+// ===== MOBILE MENU =====
+function initMobileMenu() {
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
     
-    if (searchInput) {
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            
-            publications.forEach(publication => {
-                const title = publication.querySelector('.publication-title').textContent.toLowerCase();
-                const authors = publication.querySelector('.publication-authors').textContent.toLowerCase();
-                const abstract = publication.querySelector('.publication-abstract').textContent.toLowerCase();
-                
-                if (title.includes(searchTerm) || authors.includes(searchTerm) || abstract.includes(searchTerm)) {
-                    publication.style.display = 'block';
+    if (navToggle && navMenu) {
+        // Hamburger animation
+        navToggle.addEventListener('click', function() {
+            const spans = navToggle.querySelectorAll('span');
+            spans.forEach((span, index) => {
+                if (navToggle.classList.contains('active')) {
+                    // Close animation
+                    if (index === 0) span.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    if (index === 1) span.style.opacity = '0';
+                    if (index === 2) span.style.transform = 'rotate(-45deg) translate(7px, -6px)';
                 } else {
-                    publication.style.display = 'none';
+                    // Open animation
+                    span.style.transform = 'none';
+                    span.style.opacity = '1';
                 }
+            });
+        });
+        
+        // Close menu on link click
+        const navLinks = navMenu.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                document.body.classList.remove('menu-open');
             });
         });
     }
 }
 
-// Lazy loading for images
-function lazyLoadImages() {
+// ===== EMAIL OBFUSCATION =====
+function initEmailObfuscation() {
+    const emailElements = document.querySelectorAll('.email-obfuscated');
+    
+    emailElements.forEach(element => {
+        element.addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = this.textContent.replace(' [at] ', '@');
+            window.location.href = `mailto:${email}`;
+        });
+    });
+}
+
+// ===== RESEARCH CHIPS =====
+function initResearchChips() {
+    const researchChips = document.querySelectorAll('.research-chip');
+    
+    researchChips.forEach(chip => {
+        chip.addEventListener('click', function(e) {
+            // Add visual feedback
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+            
+            // Track interaction
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'click', {
+                    event_category: 'Research',
+                    event_label: this.textContent.trim()
+                });
+            }
+        });
+    });
+}
+
+// ===== PUBLICATION INTERACTIONS =====
+function initPublicationInteractions() {
+    const publicationItems = document.querySelectorAll('.publication-item');
+    
+    publicationItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px)';
+            this.style.boxShadow = 'var(--shadow-2xl)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'var(--shadow-md)';
+        });
+    });
+}
+
+// ===== PERFORMANCE OPTIMIZATIONS =====
+function initPerformanceOptimizations() {
+    // Lazy loading for images
     const images = document.querySelectorAll('img[data-src]');
-    const imageObserver = new IntersectionObserver((entries) => {
+    const imageObserver = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
@@ -364,213 +227,255 @@ function lazyLoadImages() {
     });
     
     images.forEach(img => imageObserver.observe(img));
+    
+    // Debounced scroll events
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(function() {
+            // Scroll-based functionality here
+        }, 100);
+    });
+    
+    // Preload critical resources
+    const criticalResources = [
+        'styles.css',
+        'script.js'
+    ];
+    
+    criticalResources.forEach(resource => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = resource;
+        link.as = resource.endsWith('.css') ? 'style' : 'script';
+        document.head.appendChild(link);
+    });
 }
 
-// Initialize lazy loading
-document.addEventListener('DOMContentLoaded', function() {
-    lazyLoadImages();
-});
-
-// Back to top button
-function createBackToTopButton() {
-    const button = document.createElement('button');
-    button.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    button.className = 'back-to-top';
-    button.setAttribute('aria-label', 'Back to top');
-    document.body.appendChild(button);
+// ===== ACCESSIBILITY =====
+function initAccessibility() {
+    // Skip link functionality
+    const skipLink = document.querySelector('.skip-link');
+    if (skipLink) {
+        skipLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.focus();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
     
-    // Show/hide button based on scroll position
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-            button.classList.add('show');
-        } else {
-            button.classList.remove('show');
+    // Keyboard navigation for mobile menu
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+        
+        // Trap focus in mobile menu when open
+        document.addEventListener('keydown', function(e) {
+            if (navMenu.classList.contains('active') && e.key === 'Escape') {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                navToggle.focus();
+            }
+        });
+    }
+    
+    // Focus management for modals and dropdowns
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+            const activeElement = document.activeElement;
+            const focusableElements = document.querySelectorAll(
+                'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
+            );
+            const focusableArray = Array.from(focusableElements);
+            const firstFocusable = focusableArray[0];
+            const lastFocusable = focusableArray[focusableArray.length - 1];
+            
+            if (e.shiftKey) {
+                if (activeElement === firstFocusable) {
+                    lastFocusable.focus();
+                    e.preventDefault();
+                }
+            } else {
+                if (activeElement === lastFocusable) {
+                    firstFocusable.focus();
+                    e.preventDefault();
+                }
+            }
         }
     });
-    
-    // Scroll to top when clicked
-    button.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
 }
 
-// Initialize back to top button
-document.addEventListener('DOMContentLoaded', function() {
-    createBackToTopButton();
-});
+// ===== UTILITY FUNCTIONS =====
 
-// Add CSS for back to top button
-const backToTopCSS = `
-.back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    box-shadow: var(--shadow-lg);
-}
-
-.back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.back-to-top:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.error {
-    border-color: #ef4444 !important;
-    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
-}
-`;
-
-// Inject CSS
-const style = document.createElement('style');
-style.textContent = backToTopCSS;
-document.head.appendChild(style);
-
-// Performance optimization: Debounce scroll events
-function debounce(func, wait) {
+// Debounce function
+function debounce(func, wait, immediate) {
     let timeout;
     return function executedFunction(...args) {
         const later = () => {
-            clearTimeout(timeout);
-            func(...args);
+            timeout = null;
+            if (!immediate) func(...args);
         };
+        const callNow = immediate && !timeout;
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
+        if (callNow) func(...args);
     };
 }
 
-// Apply debouncing to scroll events
-const debouncedScrollHandler = debounce(function() {
-    // Scroll-based animations and effects
-}, 10);
-
-window.addEventListener('scroll', debouncedScrollHandler);
-
-// Error handling for missing elements
-function safeQuerySelector(selector) {
-    try {
-        return document.querySelector(selector);
-    } catch (error) {
-        console.warn(`Element not found: ${selector}`);
-        return null;
-    }
+// Throttle function
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
 }
 
-// Carousel functionality for featured papers
-let currentSlide = 0;
-const slides = document.querySelectorAll('.paper-slide');
-const dots = document.querySelectorAll('.dot');
+// Format number with commas
+function formatNumber(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
 
-function showSlide(n) {
-    if (slides.length === 0) return;
+// Get element offset
+function getOffset(element) {
+    const rect = element.getBoundingClientRect();
+    return {
+        top: rect.top + window.scrollY,
+        left: rect.left + window.scrollX
+    };
+}
+
+// Check if element is in viewport
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// ===== GLOBAL SEARCH FUNCTIONALITY =====
+function initGlobalSearch() {
+    const searchData = [
+        { title: "Energy Security Assessment", type: "publication", url: "publications.html" },
+        { title: "Wind Energy Potential", type: "publication", url: "publications.html" },
+        { title: "Green Hydrogen Economics", type: "research", url: "research.html" },
+        { title: "Energy Systems Modeling", type: "research", url: "research.html" },
+        { title: "Teaching Materials", type: "teaching", url: "teaching.html" },
+        { title: "Contact Information", type: "contact", url: "contact.html" }
+    ];
     
-    // Hide all slides
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
     
-    // Calculate current slide index
-    currentSlide = (n + slides.length) % slides.length;
-    
-    // Show current slide
-    if (slides[currentSlide]) {
-        slides[currentSlide].classList.add('active');
-    }
-    if (dots[currentSlide]) {
-        dots[currentSlide].classList.add('active');
-    }
-}
-
-function moveCarousel(direction) {
-    showSlide(currentSlide + direction);
-}
-
-function goToSlide(n) {
-    showSlide(n - 1);
-}
-
-// Auto-advance carousel
-function autoAdvanceCarousel() {
-    if (slides.length > 1) {
-        setInterval(() => {
-            moveCarousel(1);
-        }, 5000); // Change slide every 5 seconds
-    }
-}
-
-// Initialize all functionality safely
-document.addEventListener('DOMContentLoaded', function() {
-    try {
-        // Initialize all features with a small delay to ensure DOM is fully loaded
-        setTimeout(() => {
-            console.log('Initializing publication filters...');
+    if (searchInput && searchResults) {
+        searchInput.addEventListener('input', debounce(function(e) {
+            const query = e.target.value.toLowerCase().trim();
             
-            // Set up event listeners manually as backup
-            const yearFilter = document.getElementById('yearFilter');
-            const typeFilter = document.getElementById('typeFilter');
-            const topicFilter = document.getElementById('topicFilter');
-            const sortSelect = document.getElementById('sortBy');
-            
-            if (yearFilter) {
-                yearFilter.addEventListener('change', filterPublications);
-                console.log('Year filter event listener added');
-            }
-            if (typeFilter) {
-                typeFilter.addEventListener('change', filterPublications);
-                console.log('Type filter event listener added');
-            }
-            if (topicFilter) {
-                topicFilter.addEventListener('change', filterPublications);
-                console.log('Topic filter event listener added');
-            }
-            if (sortSelect) {
-                sortSelect.addEventListener('change', sortPublications);
-                console.log('Sort event listener added');
+            if (query.length < 2) {
+                searchResults.innerHTML = '';
+                searchResults.style.display = 'none';
+                return;
             }
             
-            // Initialize functions
-            filterPublications();
-            searchPublications();
-            sortPublications();
-            autoAdvanceCarousel();
-        }, 100);
+            const filtered = searchData.filter(item => 
+                item.title.toLowerCase().includes(query)
+            );
+            
+            if (filtered.length > 0) {
+                searchResults.innerHTML = filtered.map(item => `
+                    <div class="search-result-item">
+                        <div class="search-result-title">${item.title}</div>
+                        <div class="search-result-meta">${item.type}</div>
+                    </div>
+                `).join('');
+                searchResults.style.display = 'block';
+            } else {
+                searchResults.innerHTML = '<div class="search-result-item">No results found</div>';
+                searchResults.style.display = 'block';
+            }
+        }, 300));
         
-        // Add loading states
-        document.body.classList.add('loaded');
-        
-    } catch (error) {
-        console.error('Error initializing website:', error);
+        // Hide results when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.style.display = 'none';
+            }
+        });
     }
+}
+
+// ===== CITATION CHART =====
+function initCitationChart() {
+    const chartCanvas = document.getElementById('citation-chart');
+    
+    if (chartCanvas && typeof Chart !== 'undefined') {
+        const ctx = chartCanvas.getContext('2d');
+        
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+                datasets: [{
+                    label: 'Citations',
+                    data: [12, 19, 25, 42, 58, 89, 125, 167, 189, 212],
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        }
+                    }
+                }
+            }
+        });
+    }
+}
+
+// ===== ERROR HANDLING =====
+window.addEventListener('error', function(e) {
+    console.error('JavaScript Error:', e.error);
+    // Could send to error tracking service
 });
 
-// Service Worker registration for PWA capabilities (optional)
+// ===== SERVICE WORKER REGISTRATION =====
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('/sw.js')
@@ -581,4 +486,24 @@ if ('serviceWorker' in navigator) {
                 console.log('ServiceWorker registration failed');
             });
     });
+}
+
+// ===== EXPORT FOR TESTING =====
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        initNavigation,
+        initScrollEffects,
+        initAnimations,
+        initMobileMenu,
+        initEmailObfuscation,
+        initResearchChips,
+        initPublicationInteractions,
+        initPerformanceOptimizations,
+        initAccessibility,
+        debounce,
+        throttle,
+        formatNumber,
+        getOffset,
+        isInViewport
+    };
 }
